@@ -1,4 +1,4 @@
-# Agent Graph User Manual
+# Agents CLI User Manual
 
 ## Table of Contents
 
@@ -115,19 +115,19 @@ Before installing Agent Graph, ensure your system meets the following requiremen
 Install Agent Graph globally using npm:
 
 ```bash
-npm install -g agent-graph
+npm install -g agents-cli
 ```
 
 Or using yarn:
 
 ```bash
-yarn global add agent-graph
+yarn global add agents-cli
 ```
 
 Or using pnpm:
 
 ```bash
-pnpm add -g agent-graph
+pnpm add -g agents-cli
 ```
 
 #### Method 2: Local Installation
@@ -135,13 +135,13 @@ pnpm add -g agent-graph
 For project-specific installation:
 
 ```bash
-npm install --save-dev agent-graph
+npm install --save-dev agents-cli
 ```
 
 Then use with npx:
 
 ```bash
-npx agent-graph
+npx agents-cli
 ```
 
 #### Method 3: Development Installation
@@ -149,8 +149,8 @@ npx agent-graph
 Clone the repository and install from source:
 
 ```bash
-git clone https://github.com/agent-graph/agent-graph.git
-cd agent-graph
+git clone https://github.com/agents-cli/agents-cli.git
+cd agents-cli
 npm install
 npm run build
 npm link
@@ -161,11 +161,11 @@ npm link
 After installation, run the initialization wizard:
 
 ```bash
-agent-graph init
+agents-cli init
 ```
 
 This will:
-1. Create a default configuration file (`agent-graph.config.json`)
+1. Create a default configuration file (`agents-cli.config.json`)
 2. Set up the project structure
 3. Initialize the knowledge graph database
 4. Configure default agents
@@ -190,16 +190,16 @@ Verify your installation:
 
 ```bash
 # Check version
-agent-graph --version
+agents-cli --version
 
 # List available commands
-agent-graph --help
+agents-cli --help
 
 # Test system
-agent-graph doctor
+agents-cli doctor
 ```
 
-Expected output for `agent-graph doctor`:
+Expected output for `agents-cli doctor`:
 
 ```
 ✅ Agent Graph CLI: v0.1.0
@@ -223,7 +223,7 @@ Follow this 5-minute tutorial to get up and running with Agent Graph:
 ```bash
 mkdir my-first-agent-project
 cd my-first-agent-project
-agent-graph init --template basic
+agents-cli init --template basic
 ```
 
 #### Step 2: Create a Simple Code File
@@ -237,7 +237,7 @@ echo 'function greet(name) { return `Hello, ${name}!`; }' > app.js
 #### Step 3: Analyze the Code
 
 ```bash
-agent-graph analyze --file app.js
+agents-cli analyze --file app.js
 ```
 
 **Expected Output:**
@@ -255,7 +255,7 @@ agent-graph analyze --file app.js
 #### Step 4: Chat with an Agent
 
 ```bash
-agent-graph chat --agent code-analyzer
+agents-cli chat --agent code-analyzer
 ```
 
 ```
@@ -275,19 +275,19 @@ Agent Graph provides several specialized agents. Here's how to use them:
 #### Code Analyzer Agent
 
 ```bash
-agent-graph run --agent code-analyzer --task "analyze src/ directory"
+agents-cli run --agent code-analyzer --task "analyze src/ directory"
 ```
 
 #### Debugger Agent
 
 ```bash
-agent-graph run --agent debugger --task "find bugs in app.js"
+agents-cli run --agent debugger --task "find bugs in app.js"
 ```
 
 #### Test Generator Agent
 
 ```bash
-agent-graph run --agent test-generator --task "create tests for utils.js"
+agents-cli run --agent test-generator --task "create tests for utils.js"
 ```
 
 ### Basic Workflow
@@ -302,11 +302,11 @@ The typical workflow with Agent Graph involves:
 
 ```bash
 # Complete workflow example
-agent-graph init my-project
+agents-cli init my-project
 cd my-project
-agent-graph analyze --src ./src
-agent-graph run --agent refactor --task "improve performance"
-agent-graph commit --message "Refactored for performance"
+agents-cli analyze --src ./src
+agents-cli run --agent refactor --task "improve performance"
+agents-cli commit --message "Refactored for performance"
 ```
 
 ### Project Initialization
@@ -315,16 +315,16 @@ Detailed project initialization options:
 
 ```bash
 # Interactive mode (default)
-agent-graph init
+agents-cli init
 
 # Quick initialization with template
-agent-graph init --template typescript
+agents-cli init --template typescript
 
 # Advanced initialization with custom config
-agent-graph init --config ./my-config.json
+agents-cli init --config ./my-config.json
 
 # Initialize specific features only
-agent-graph init --no-git --no-knowledge-graph
+agents-cli init --no-git --no-knowledge-graph
 ```
 
 Available templates:
@@ -343,7 +343,7 @@ Available templates:
 The Agent Graph CLI provides a comprehensive set of commands for managing agents, projects, and workflows. All commands follow the pattern:
 
 ```bash
-agent-graph [command] [subcommand] [options]
+agents-cli [command] [subcommand] [options]
 ```
 
 **Global Options:**
@@ -358,16 +358,16 @@ agent-graph [command] [subcommand] [options]
 
 ### Core Commands
 
-#### `agent-graph init`
+#### `agents-cli init`
 Initialize a new Agent Graph project.
 
 ```bash
-agent-graph init [project-name] [options]
+agents-cli init [project-name] [options]
 
 # Examples:
-agent-graph init my-app
-agent-graph init --template typescript --no-git
-agent-graph init --config ./custom-config.json
+agents-cli init my-app
+agents-cli init --template typescript --no-git
+agents-cli init --config ./custom-config.json
 ```
 
 **Options:**
@@ -377,16 +377,16 @@ agent-graph init --config ./custom-config.json
 - `--no-knowledge-graph` : Skip knowledge graph setup
 - `--force, -f` : Override existing configuration
 
-#### `agent-graph analyze`
+#### `agents-cli analyze`
 Analyze code and build knowledge graph.
 
 ```bash
-agent-graph analyze [path] [options]
+agents-cli analyze [path] [options]
 
 # Examples:
-agent-graph analyze ./src
-agent-graph analyze --file app.js --detailed
-agent-graph analyze --pattern "**/*.ts" --output report.json
+agents-cli analyze ./src
+agents-cli analyze --file app.js --detailed
+agents-cli analyze --pattern "**/*.ts" --output report.json
 ```
 
 **Options:**
@@ -396,16 +396,16 @@ agent-graph analyze --pattern "**/*.ts" --output report.json
 - `--output, -o` : Output file for results
 - `--update-graph, -u` : Update knowledge graph
 
-#### `agent-graph run`
+#### `agents-cli run`
 Execute tasks with specific agents.
 
 ```bash
-agent-graph run --agent [agent-name] --task [task-description] [options]
+agents-cli run --agent [agent-name] --task [task-description] [options]
 
 # Examples:
-agent-graph run --agent code-analyzer --task "find security issues"
-agent-graph run --agent debugger --task "fix bug in user.js"
-agent-graph run --agent test-generator --task "create unit tests"
+agents-cli run --agent code-analyzer --task "find security issues"
+agents-cli run --agent debugger --task "fix bug in user.js"
+agents-cli run --agent test-generator --task "create unit tests"
 ```
 
 **Options:**
@@ -415,16 +415,16 @@ agent-graph run --agent test-generator --task "create unit tests"
 - `--output, -o` : Output file for results
 - `--format` : Output format (json, markdown, text)
 
-#### `agent-graph chat`
+#### `agents-cli chat`
 Interactive chat interface with agents.
 
 ```bash
-agent-graph chat [options]
+agents-cli chat [options]
 
 # Examples:
-agent-graph chat                        # Default agent
-agent-graph chat --agent code-analyzer  # Specific agent
-agent-graph chat --model gpt-4          # Specific model
+agents-cli chat                        # Default agent
+agents-cli chat --agent code-analyzer  # Specific agent
+agents-cli chat --model gpt-4          # Specific model
 ```
 
 **Options:**
@@ -433,16 +433,16 @@ agent-graph chat --model gpt-4          # Specific model
 - `--history, -h` : Chat history file
 - `--continuous, -c` : Continue previous session
 
-#### `agent-graph status`
+#### `agents-cli status`
 Show project and system status.
 
 ```bash
-agent-graph status [options]
+agents-cli status [options]
 
 # Examples:
-agent-graph status
-agent-graph status --detailed
-agent-graph status --agents
+agents-cli status
+agents-cli status --detailed
+agents-cli status --agents
 ```
 
 **Options:**
@@ -451,17 +451,17 @@ agent-graph status --agents
 - `--memory, -m` : Show memory system status
 - `--graph, -g` : Show knowledge graph status
 
-#### `agent-graph commit`
+#### `agents-cli commit`
 Smart commit with analysis.
 
 ```bash
-agent-graph commit [options]
-agent-graph commit [message] [options]
+agents-cli commit [options]
+agents-cli commit [message] [options]
 
 # Examples:
-agent-graph commit                           # Interactive commit
-agent-graph commit "Fix critical bug"        # With message
-agent-graph commit --auto                    # Auto-generate message
+agents-cli commit                           # Interactive commit
+agents-cli commit "Fix critical bug"        # With message
+agents-cli commit --auto                    # Auto-generate message
 ```
 
 **Options:**
@@ -472,16 +472,16 @@ agent-graph commit --auto                    # Auto-generate message
 
 ### Agent Management
 
-#### `agent-graph agent list`
+#### `agents-cli agent list`
 List all available agents.
 
 ```bash
-agent-graph agent list [options]
+agents-cli agent list [options]
 
 # Examples:
-agent-graph agent list
-agent-graph agent list --detailed
-agent-graph agent list --type primary
+agents-cli agent list
+agents-cli agent list --detailed
+agents-cli agent list --type primary
 ```
 
 **Options:**
@@ -489,52 +489,52 @@ agent-graph agent list --type primary
 - `--type, -t` : Filter by agent type (primary, subagent, meta)
 - `--status, -s` : Filter by status (enabled, disabled)
 
-#### `agent-graph agent info`
+#### `agents-cli agent info`
 Show detailed information about an agent.
 
 ```bash
-agent-graph agent info <agent-name> [options]
+agents-cli agent info <agent-name> [options]
 
 # Examples:
-agent-graph agent info code-analyzer
-agent-graph agent info debugger --config
+agents-cli agent info code-analyzer
+agents-cli agent info debugger --config
 ```
 
-#### `agent-graph agent enable/disable`
+#### `agents-cli agent enable/disable`
 Enable or disable agents.
 
 ```bash
-agent-graph agent enable <agent-name>
-agent-graph agent disable <agent-name>
+agents-cli agent enable <agent-name>
+agents-cli agent disable <agent-name>
 
 # Examples:
-agent-graph agent enable code-analyzer
-agent-graph agent disable debugger
+agents-cli agent enable code-analyzer
+agents-cli agent disable debugger
 ```
 
 ### Project Management
 
-#### `agent-graph project config`
+#### `agents-cli project config`
 Manage project configuration.
 
 ```bash
-agent-graph project config [action] [options]
+agents-cli project config [action] [options]
 
 # Examples:
-agent-graph project config show
-agent-graph project config set memory.maxSize 2000
-agent-graph project config get agents.enabled
+agents-cli project config show
+agents-cli project config set memory.maxSize 2000
+agents-cli project config get agents.enabled
 ```
 
-#### `agent-graph project reset`
+#### `agents-cli project reset`
 Reset project to initial state.
 
 ```bash
-agent-graph project reset [options]
+agents-cli project reset [options]
 
 # Examples:
-agent-graph project reset --confirm
-agent-graph project reset --memory-only
+agents-cli project reset --confirm
+agents-cli project reset --memory-only
 ```
 
 **Options:**
@@ -559,7 +559,7 @@ export AGENT_GRAPH_NEO4J_PASSWORD=password
 
 # Logging
 export AGENT_GRAPH_LOG_LEVEL=debug
-export AGENT_GRAPH_LOG_FILE=/var/log/agent-graph.log
+export AGENT_GRAPH_LOG_FILE=/var/log/agents-cli.log
 
 # AI Model settings
 export AGENT_GRAPH_DEFAULT_MODEL=gpt-4
@@ -571,7 +571,7 @@ export AGENT_GRAPH_API_KEY=your-api-key
 Specify configuration file location:
 
 ```bash
-agent-graph --config ./custom-config.json analyze ./src
+agents-cli --config ./custom-config.json analyze ./src
 ```
 
 #### Batch Processing
@@ -579,8 +579,8 @@ agent-graph --config ./custom-config.json analyze ./src
 Process multiple files or directories:
 
 ```bash
-agent-graph analyze --batch ./src ./lib ./tests
-agent-graph run --agent test-generator --batch "test*.js"
+agents-cli analyze --batch ./src ./lib ./tests
+agents-cli run --agent test-generator --batch "test*.js"
 ```
 
 #### Output Redirection
@@ -588,8 +588,8 @@ agent-graph run --agent test-generator --batch "test*.js"
 Save command output to files:
 
 ```bash
-agent-graph analyze ./src --output analysis.json --format json
-agent-graph status --detailed > status-report.txt
+agents-cli analyze ./src --output analysis.json --format json
+agents-cli status --detailed > status-report.txt
 ```
 
 ---
@@ -602,13 +602,13 @@ The Terminal User Interface (TUI) provides an interactive, visual way to work wi
 
 ```bash
 # Launch the TUI
-agent-graph-tui
+agents-cli-tui
 
 # Or via the CLI
-agent-graph tui
+agents-cli tui
 
 # With specific configuration
-agent-graph-tui --config ./config.json
+agents-cli-tui --config ./config.json
 ```
 
 **System Requirements for TUI:**
@@ -803,7 +803,7 @@ Comprehensive settings management:
 #### Workflow 1: Code Analysis and Refactoring
 
 ```bash
-1. Launch TUI: agent-graph-tui
+1. Launch TUI: agents-cli-tui
 2. Navigate to Projects tab
 3. Select your project (Enter)
 4. Navigate to Agents tab
@@ -949,25 +949,25 @@ Short-term memory provides fast, temporary storage for active sessions and recen
 
 ```bash
 # Store data in short-term memory
-agent-graph memory set --type short-term --key "user:context" --value '{"project": "my-app", "user": "alice"}'
+agents-cli memory set --type short-term --key "user:context" --value '{"project": "my-app", "user": "alice"}'
 
 # Retrieve from short-term memory
-agent-graph memory get --type short-term --key "user:context"
+agents-cli memory get --type short-term --key "user:context"
 
 # Set with TTL
-agent-graph memory set --type short-term --key "temp:analysis" --value "results" --ttl 300000
+agents-cli memory set --type short-term --key "temp:analysis" --value "results" --ttl 300000
 
 # List all short-term memory items
-agent-graph memory list --type short-term
+agents-cli memory list --type short-term
 
 # Clear short-term memory
-agent-graph memory clear --type short-term
+agents-cli memory clear --type short-term
 ```
 
 #### API Usage
 
 ```javascript
-import { MemoryManager } from '@agent-graph/memory';
+import { MemoryManager } from '@agents-cli/memory';
 
 const memory = new MemoryManager({
   shortTerm: {
@@ -1011,7 +1011,7 @@ Long-term memory provides persistent storage with advanced search and relationsh
   "memory": {
     "longTerm": {
       "provider": "sqlite",        // sqlite, neo4j, postgresql
-      "dbPath": "./agent-graph.db",
+      "dbPath": "./agents-cli.db",
       "searchIndexing": true,
       "compression": true,
       "encryption": {
@@ -1032,38 +1032,38 @@ Long-term memory provides persistent storage with advanced search and relationsh
 
 ```bash
 # Store in long-term memory
-agent-graph memory set --type long-term --key "project:architecture" --file ./architecture.md
+agents-cli memory set --type long-term --key "project:architecture" --file ./architecture.md
 
 # Search long-term memory
-agent-graph memory search --type long-term --query "authentication system" --limit 10
+agents-cli memory search --type long-term --query "authentication system" --limit 10
 
 # Advanced search with filters
-agent-graph memory search --type long-term --query "performance" --filter "type:analysis,date:>2024-01-01"
+agents-cli memory search --type long-term --query "performance" --filter "type:analysis,date:>2024-01-01"
 
 # Get memory statistics
-agent-graph memory stats --type long-term
+agents-cli memory stats --type long-term
 
 # Export memory data
-agent-graph memory export --type long-term --format json --output memory-backup.json
+agents-cli memory export --type long-term --format json --output memory-backup.json
 ```
 
 #### Advanced Search Features
 
 ```bash
 # Text search with ranking
-agent-graph memory search --query "security vulnerabilities" --rank
+agents-cli memory search --query "security vulnerabilities" --rank
 
 # Semantic search
-agent-graph memory search --query "authentication flow" --semantic
+agents-cli memory search --query "authentication flow" --semantic
 
 # Filter by date range
-agent-graph memory search --query "bug fixes" --filter "date:2024-01-01..2024-12-31"
+agents-cli memory search --query "bug fixes" --filter "date:2024-01-01..2024-12-31"
 
 # Filter by type
-agent-graph memory search --query "test cases" --filter "type:test,framework:jest"
+agents-cli memory search --query "test cases" --filter "type:test,framework:jest"
 
 # Compound search
-agent-graph memory search --query "performance optimization" --filter "type:analysis,priority:high" --limit 5
+agents-cli memory search --query "performance optimization" --filter "type:analysis,priority:high" --limit 5
 ```
 
 ### Memory Configuration
@@ -1086,7 +1086,7 @@ agent-graph memory search --query "performance optimization" --filter "type:anal
     },
     "longTerm": {
       "provider": "sqlite",
-      "dbPath": "./agent-graph.db",
+      "dbPath": "./agents-cli.db",
       "searchIndexing": true,
       "compression": true,
       "encryption": {
@@ -1120,7 +1120,7 @@ agent-graph memory search --query "performance optimization" --filter "type:anal
 
 ```bash
 # Memory configuration
-export AGENT_GRAPH_MEMORY_DB_PATH=/data/agent-graph.db
+export AGENT_GRAPH_MEMORY_DB_PATH=/data/agents-cli.db
 export AGENT_GRAPH_MEMORY_PROVIDER=sqlite
 export AGENT_GRAPH_MEMORY_CACHE_SIZE=100000000
 
@@ -1153,8 +1153,8 @@ export AGENT_GRAPH_MEMORY_BACKUP_INTERVAL=86400000
 3. **Implement Memory Cleanup**
    ```bash
    # Regular cleanup script
-   agent-graph memory cleanup --type short-term --older-than 24h
-   agent-graph memory cleanup --type long-term --filter "priority:low"
+   agents-cli memory cleanup --type short-term --older-than 24h
+   agents-cli memory cleanup --type long-term --filter "priority:low"
    ```
 
 #### Data Organization
@@ -1191,29 +1191,29 @@ export AGENT_GRAPH_MEMORY_BACKUP_INTERVAL=86400000
 
 ```bash
 # Monitor memory usage
-agent-graph memory monitor --real-time
+agents-cli memory monitor --real-time
 
 # Get detailed statistics
-agent-graph memory stats --detailed
+agents-cli memory stats --detailed
 
 # Memory usage report
-agent-graph memory report --format markdown --output memory-report.md
+agents-cli memory report --format markdown --output memory-report.md
 ```
 
 #### Backup and Recovery
 
 ```bash
 # Create manual backup
-agent-graph memory backup --create --name "before-refactor"
+agents-cli memory backup --create --name "before-refactor"
 
 # List backups
-agent-graph memory backup --list
+agents-cli memory backup --list
 
 # Restore from backup
-agent-graph memory backup --restore "before-refactor"
+agents-cli memory backup --restore "before-refactor"
 
 # Schedule automatic backups
-agent-graph memory backup --schedule --interval 24h
+agents-cli memory backup --schedule --interval 24h
 ```
 
 ### Memory API Reference
@@ -1285,7 +1285,7 @@ The system analyzes your changes and generates meaningful commit messages:
 
 ```bash
 # Enable smart commits
-agent-graph commit --auto --analyze
+agents-cli commit --auto --analyze
 
 # Example output
 git commit -m "feat(auth): Add JWT token validation with refresh mechanism
@@ -1330,10 +1330,10 @@ Automatic code analysis before commits:
 
 ```bash
 # Enable pre-commit hooks
-agent-graph git install-hooks
+agents-cli git install-hooks
 
 # Run manual pre-commit analysis
-agent-graph git pre-commit
+agents-cli git pre-commit
 
 # Example analysis results
 🔍 Pre-commit Analysis Results
@@ -1359,9 +1359,9 @@ Agent Graph performs comprehensive code reviews automatically:
 
 ```bash
 # Generate code review
-agent-graph git review --branch feature/new-auth
-agent-graph git review --commit HEAD~3..HEAD
-agent-graph git review --file src/auth.js
+agents-cli git review --branch feature/new-auth
+agents-cli git review --commit HEAD~3..HEAD
+agents-cli git review --file src/auth.js
 ```
 
 #### Review Categories
@@ -1549,73 +1549,73 @@ export AGENT_GRAPH_GIT_PRE_COMMIT_ANALYSIS=true
 
 ```bash
 # Initialize Git integration
-agent-graph git init
+agents-cli git init
 
 # Install Git hooks
-agent-graph git install-hooks
+agents-cli git install-hooks
 
 # Analyze current changes
-agent-graph git analyze
+agents-cli git analyze
 
 # Review changes
-agent-graph git review
+agents-cli git review
 
 # Smart commit
-agent-graph git commit --auto
+agents-cli git commit --auto
 
 # Create pull request with analysis
-agent-graph git pr --create --auto-review
+agents-cli git pr --create --auto-review
 
 # Merge with confidence
-agent-graph git merge --verify-quality
+agents-cli git merge --verify-quality
 ```
 
 #### Branch Management
 
 ```bash
 # Create feature branch with analysis
-agent-graph git branch create feature/user-auth --analyze-base
+agents-cli git branch create feature/user-auth --analyze-base
 
 # Switch branches with context
-agent-graph git branch checkout feature/api-refactor --load-context
+agents-cli git branch checkout feature/api-refactor --load-context
 
 # Merge with quality gates
-agent-graph git merge feature/user-auth into main --quality-gate
+agents-cli git merge feature/user-auth into main --quality-gate
 
 # Delete branch after merge
-agent-graph git branch cleanup feature/user-auth --merged
+agents-cli git branch cleanup feature/user-auth --merged
 ```
 
 #### Pull Request Integration
 
 ```bash
 # Create PR with automatic description
-agent-graph git pr create --title "Add user authentication" --auto-description
+agents-cli git pr create --title "Add user authentication" --auto-description
 
 # Update PR with latest analysis
-agent-graph git pr update --refresh-analysis
+agents-cli git pr update --refresh-analysis
 
 # Request review from specific agents
-agent-graph git pr review --agents security-agent,performance-agent
+agents-cli git pr review --agents security-agent,performance-agent
 
 # Auto-merge if quality gates pass
-agent-graph git pr merge --auto-if-quality-passes
+agents-cli git pr merge --auto-if-quality-passes
 ```
 
 #### Release Management
 
 ```bash
 # Prepare release with changelog
-agent-graph git release prepare v1.2.0 --auto-changelog
+agents-cli git release prepare v1.2.0 --auto-changelog
 
 # Verify release quality
-agent-graph git release verify --quality-gate
+agents-cli git release verify --quality-gate
 
 # Tag release with analysis
-agent-graph git tag v1.2.0 --attach-analysis
+agents-cli git tag v1.2.0 --attach-analysis
 
 # Generate release notes
-agent-graph git release notes v1.1.0..v1.2.0 --format markdown
+agents-cli git release notes v1.1.0..v1.2.0 --format markdown
 ```
 
 ### Advanced Git Features
@@ -1624,64 +1624,64 @@ agent-graph git release notes v1.1.0..v1.2.0 --format markdown
 
 ```bash
 # Analyze commit history
-agent-graph git analyze commits --since "2024-01-01"
+agents-cli git analyze commits --since "2024-01-01"
 
 # Commit quality metrics
-agent-graph git analyze quality --period "30d"
+agents-cli git analyze quality --period "30d"
 
 # Contributor analysis
-agent-graph git analyze contributors --by-commits --by-changes
+agents-cli git analyze contributors --by-commits --by-changes
 
 # Hotspot identification
-agent-graph git analyze hotspots --files --authors
+agents-cli git analyze hotspots --files --authors
 ```
 
 #### Branch Health
 
 ```bash
 # Check branch health
-agent-graph git health feature/authentication
+agents-cli git health feature/authentication
 
 # Identify merge conflicts early
-agent-graph git conflicts check feature/auth develop
+agents-cli git conflicts check feature/auth develop
 
 # Suggest merge strategy
-agent-graph git merge-strategy suggest feature/api-refactor
+agents-cli git merge-strategy suggest feature/api-refactor
 
 # Branch dependency analysis
-agent-graph git dependencies analyze feature/user-auth
+agents-cli git dependencies analyze feature/user-auth
 ```
 
 #### Integration with CI/CD
 
 ```bash
 # GitHub Actions integration
-agent-graph ci github setup
+agents-cli ci github setup
 
 # Generate CI configuration
-agent-graph ci generate --platform github-actions
+agents-cli ci generate --platform github-actions
 
 # Quality gate for CI
-agent-graph ci quality-gate --threshold 8.0
+agents-cli ci quality-gate --threshold 8.0
 
 # Update status checks
-agent-graph ci status update --context "agent-graph-review"
+agents-cli ci status update --context "agents-cli-review"
 ```
 
 #### Git Metrics and Analytics
 
 ```bash
 # Repository metrics dashboard
-agent-graph git metrics dashboard
+agents-cli git metrics dashboard
 
 # Code churn analysis
-agent-graph git analyze churn --period "90d"
+agents-cli git analyze churn --period "90d"
 
 # Bug prediction
-agent-graph git predict bugs --files src/auth/
+agents-cli git predict bugs --files src/auth/
 
 # Technical debt assessment
-agent-graph git debt analyze --format report
+agents-cli git debt analyze --format report
 ```
 
 ### Git Best Practices
@@ -1691,7 +1691,7 @@ agent-graph git debt analyze --format report
 1. **Atomic Commits**
    ```bash
    # Agent Graph helps create atomic commits
-   agent-graph commit --atomic --analyze
+   agents-cli commit --atomic --analyze
    ```
 
 2. **Conventional Commits**
@@ -1711,24 +1711,24 @@ agent-graph git debt analyze --format report
 3. **Quality Gates**
    ```bash
    # Prevent low-quality commits
-   agent-graph commit --quality-gate --threshold 7.0
+   agents-cli commit --quality-gate --threshold 7.0
    ```
 
 #### Branch Strategy
 
 1. **Feature Branch Workflow**
    ```bash
-   agent-graph workflow feature-branch --base develop --require-review
+   agents-cli workflow feature-branch --base develop --require-review
    ```
 
 2. **GitFlow Integration**
    ```bash
-   agent-graph workflow gitflow --main main --develop develop
+   agents-cli workflow gitflow --main main --develop develop
    ```
 
 3. **Trunk-based Development**
    ```bash
-   agent-graph workflow trunk-based --main main --require-pr-quality 8.0
+   agents-cli workflow trunk-based --main main --require-pr-quality 8.0
    ```
 
 #### Collaboration Features
@@ -1736,19 +1736,19 @@ agent-graph git debt analyze --format report
 1. **Code Assignment**
    ```bash
    # Assign code review to specific agents
-   agent-graph assign review --agents security-agent --files src/auth/*
+   agents-cli assign review --agents security-agent --files src/auth/*
    ```
 
 2. **Knowledge Sharing**
    ```bash
    # Share analysis results with team
-   agent-graph git share-analysis --format markdown --output shared-review.md
+   agents-cli git share-analysis --format markdown --output shared-review.md
    ```
 
 3. **Automated Documentation**
    ```bash
    # Generate changelog from commits
-   agent-graph git changelog --since "v1.1.0" --format markdown
+   agents-cli git changelog --since "v1.1.0" --format markdown
    ```
 
 ## Knowledge Graphs
@@ -1899,27 +1899,27 @@ const relationshipTypes = {
 
 ```bash
 # Find all functions in a specific file
-agent-graph graph query "
+agents-cli graph query "
   MATCH (f:Function)-[:DEFINED_IN]->(file:File {path: 'src/utils.js'})
   RETURN f.name, f.complexity, f.lines
 "
 
 # Find circular dependencies
-agent-graph graph query "
+agents-cli graph query "
   MATCH (a:Module)-[:IMPORTS]->(b:Module)-[:IMPORTS*]->(a)
   WHERE a <> b
   RETURN DISTINCT a.name, b.name
 "
 
 # Find unused functions
-agent-graph graph query "
+agents-cli graph query "
   MATCH (f:Function)
   WHERE NOT (f)<-[:CALLS]-()
   RETURN f.name, f.file
 "
 
 # Find high-complexity functions
-agent-graph graph query "
+agents-cli graph query "
   MATCH (f:Function)
   WHERE f.complexity > 10
   RETURN f.name, f.complexity, f.file
@@ -1927,7 +1927,7 @@ agent-graph graph query "
 "
 
 # Get dependency graph for a module
-agent-graph graph query "
+agents-cli graph query "
   MATCH (m:Module {name: 'auth'})-[:IMPORTS*1..3]->(dep:Module)
   RETURN DISTINCT dep.name, dep.path
 "
@@ -1937,28 +1937,28 @@ agent-graph graph query "
 
 ```bash
 # Search using natural language
-agent-graph graph search "find all security-related functions"
-agent-graph graph search "show me unused variables in the authentication module"
-agent-graph graph search "what are the dependencies of the user service"
-agent-graph graph search "find circular imports in the codebase"
-agent-graph graph search "show me test coverage for API endpoints"
+agents-cli graph search "find all security-related functions"
+agents-cli graph search "show me unused variables in the authentication module"
+agents-cli graph search "what are the dependencies of the user service"
+agents-cli graph search "find circular imports in the codebase"
+agents-cli graph search "show me test coverage for API endpoints"
 ```
 
 #### Advanced Query Patterns
 
 ```bash
 # Pattern-based queries
-agent-graph graph pattern "singleton pattern"
-agent-graph graph pattern "factory pattern"
-agent-graph graph pattern "observer pattern"
+agents-cli graph pattern "singleton pattern"
+agents-cli graph pattern "factory pattern"
+agents-cli graph pattern "observer pattern"
 
 # Impact analysis
-agent-graph graph impact --node "UserService.updateProfile"
-agent-graph graph impact --file "src/auth/jwt.js"
+agents-cli graph impact --node "UserService.updateProfile"
+agents-cli graph impact --file "src/auth/jwt.js"
 
 # Relationship analysis
-agent-graph graph analyze --type "CALLS" --threshold 5
-agent-graph graph analyze --type "DEPENDS_ON" --depth 3
+agents-cli graph analyze --type "CALLS" --threshold 5
+agents-cli graph analyze --type "DEPENDS_ON" --depth 3
 ```
 
 ### Visualization Options
@@ -1969,18 +1969,18 @@ The built-in graph viewer provides multiple visualization modes:
 
 ```bash
 # Launch interactive graph viewer
-agent-graph graph view
+agents-cli graph view
 
 # View specific subgraph
-agent-graph graph view --center "UserService" --radius 2
+agents-cli graph view --center "UserService" --radius 2
 
 # Filter by node type
-agent-graph graph view --filter "type:Function"
+agents-cli graph view --filter "type:Function"
 
 # Custom layout
-agent-graph graph view --layout force-directed
-agent-graph graph view --layout hierarchical
-agent-graph graph view --layout circular
+agents-cli graph view --layout force-directed
+agents-cli graph view --layout hierarchical
+agents-cli graph view --layout circular
 ```
 
 #### Layout Options
@@ -2009,21 +2009,21 @@ agent-graph graph view --layout circular
 
 ```bash
 # Export to various formats
-agent-graph graph export --format svg --output graph.svg
-agent-graph graph export --format png --output graph.png
-agent-graph graph export --format json --output graph-data.json
-agent-graph graph export --format graphml --output graph.graphml
-agent-graph graph export --format cytoscape --output graph.json
+agents-cli graph export --format svg --output graph.svg
+agents-cli graph export --format png --output graph.png
+agents-cli graph export --format json --output graph-data.json
+agents-cli graph export --format graphml --output graph.graphml
+agents-cli graph export --format cytoscape --output graph.json
 
 # Export subgraph
-agent-graph graph export --node "UserService" --radius 2 --format svg
+agents-cli graph export --node "UserService" --radius 2 --format svg
 ```
 
 #### Custom Visualizations
 
 ```javascript
 // Create custom visualization
-import { GraphVisualizer } from '@agent-graph/knowledge';
+import { GraphVisualizer } from '@agents-cli/knowledge';
 
 const viz = new GraphVisualizer({
   layout: 'force-directed',
@@ -2054,48 +2054,48 @@ viz.addNodeStyle('high-complexity', {
 
 ```bash
 # Build from scratch
-agent-graph graph build --source ./src
+agents-cli graph build --source ./src
 
 # Incremental update
-agent-graph graph update --changed-files ./src/auth.js
+agents-cli graph update --changed-files ./src/auth.js
 
 # Full rebuild
-agent-graph graph rebuild --force
+agents-cli graph rebuild --force
 
 # Build with specific analyzers
-agent-graph graph build --analyzers "static,dynamic,semantic"
+agents-cli graph build --analyzers "static,dynamic,semantic"
 ```
 
 #### Graph Maintenance
 
 ```bash
 # Check graph health
-agent-graph graph health
+agents-cli graph health
 
 # Clean orphaned nodes
-agent-graph graph cleanup --orphans
+agents-cli graph cleanup --orphans
 
 # Optimize graph performance
-agent-graph graph optimize
+agents-cli graph optimize
 
 # Validate relationships
-agent-graph graph validate --strict
+agents-cli graph validate --strict
 ```
 
 #### Graph Statistics
 
 ```bash
 # Get graph overview
-agent-graph graph stats
+agents-cli graph stats
 
 # Detailed metrics
-agent-graph graph metrics --detailed
+agents-cli graph metrics --detailed
 
 # Node type distribution
-agent-graph graph distribution --by-type
+agents-cli graph distribution --by-type
 
 # Relationship analysis
-agent-graph graph analysis --relationships
+agents-cli graph analysis --relationships
 ```
 
 ### Integration with Agents
@@ -2104,20 +2104,20 @@ agent-graph graph analysis --relationships
 
 ```bash
 # Agent can query the graph
-agent-graph run --agent code-analyzer --task "analyze complexity using knowledge graph"
+agents-cli run --agent code-analyzer --task "analyze complexity using knowledge graph"
 
 # Results are stored back to graph
-agent-graph run --agent refactor --task "update graph with new architecture"
+agents-cli run --agent refactor --task "update graph with new architecture"
 ```
 
 #### Memory Integration
 
 ```bash
 # Store graph queries in memory
-agent-graph memory set --key "complexity_analysis" --value "$(agent-graph graph query 'MATCH...')"
+agents-cli memory set --key "complexity_analysis" --value "$(agents-cli graph query 'MATCH...')"
 
 # Retrieve cached results
-agent-graph memory get --key "complexity_analysis"
+agents-cli memory get --key "complexity_analysis"
 ```
 
 ### Performance Optimization
@@ -2149,7 +2149,7 @@ agent-graph memory get --key "complexity_analysis"
 
 ```bash
 # Use query hints
-agent-graph graph query "
+agents-cli graph query "
   MATCH (f:Function)
   USING INDEX f:Function(name)
   WHERE f.name STARTS WITH 'get'
@@ -2157,7 +2157,7 @@ agent-graph graph query "
 "
 
 # Profile queries
-agent-graph graph profile "
+agents-cli graph profile "
   MATCH (f:Function)-[:CALLS]->(g:Function)
   RETURN f.name, g.name
 "
@@ -2184,9 +2184,9 @@ Agent Graph provides a sophisticated multi-agent system with specialized agents 
 
 ```bash
 # Use CodeAnalyzer
-agent-graph run --agent code-analyzer --task "analyze complexity in src/"
-agent-graph run --agent code-analyzer --task "find security issues in auth module"
-agent-graph run --agent code-analyzer --task "review code quality"
+agents-cli run --agent code-analyzer --task "analyze complexity in src/"
+agents-cli run --agent code-analyzer --task "find security issues in auth module"
+agents-cli run --agent code-analyzer --task "review code quality"
 ```
 
 **2. Debugger Agent**
@@ -2200,9 +2200,9 @@ agent-graph run --agent code-analyzer --task "review code quality"
 
 ```bash
 # Use Debugger
-agent-graph run --agent debugger --task "fix bug in user authentication"
-agent-graph run --agent debugger --task "analyze error logs"
-agent-graph run --agent debugger --task "debug failing tests"
+agents-cli run --agent debugger --task "fix bug in user authentication"
+agents-cli run --agent debugger --task "analyze error logs"
+agents-cli run --agent debugger --task "debug failing tests"
 ```
 
 **3. TestGenerator Agent**
@@ -2216,9 +2216,9 @@ agent-graph run --agent debugger --task "debug failing tests"
 
 ```bash
 # Use TestGenerator
-agent-graph run --agent test-generator --task "create tests for utils.js"
-agent-graph run --agent test-generator --task "generate integration tests for API"
-agent-graph run --agent test-generator --task "improve test coverage"
+agents-cli run --agent test-generator --task "create tests for utils.js"
+agents-cli run --agent test-generator --task "generate integration tests for API"
+agents-cli run --agent test-generator --task "improve test coverage"
 ```
 
 **4. RefactorAgent**
@@ -2232,9 +2232,9 @@ agent-graph run --agent test-generator --task "improve test coverage"
 
 ```bash
 # Use RefactorAgent
-agent-graph run --agent refactor --task "optimize database queries"
-agent-graph run --agent refactor --task "implement factory pattern"
-agent-graph run --agent refactor --task "modernize legacy code"
+agents-cli run --agent refactor --task "optimize database queries"
+agents-cli run --agent refactor --task "implement factory pattern"
+agents-cli run --agent refactor --task "modernize legacy code"
 ```
 
 **5. DocumentationAgent**
@@ -2248,9 +2248,9 @@ agent-graph run --agent refactor --task "modernize legacy code"
 
 ```bash
 # Use DocumentationAgent
-agent-graph run --agent doc-generator --task "generate API docs"
-agent-graph run --agent doc-generator --task "create README for project"
-agent-graph run --agent doc-generator --task "document authentication flow"
+agents-cli run --agent doc-generator --task "generate API docs"
+agents-cli run --agent doc-generator --task "create README for project"
+agents-cli run --agent doc-generator --task "document authentication flow"
 ```
 
 #### Specialized Agents
@@ -2283,7 +2283,7 @@ agent-graph run --agent doc-generator --task "document authentication flow"
 
 #### Basic Configuration
 
-Each agent can be configured independently in your `agent-graph.config.json`:
+Each agent can be configured independently in your `agents-cli.config.json`:
 
 ```json
 {
@@ -2381,7 +2381,7 @@ Each agent can be configured independently in your `agent-graph.config.json`:
 You can create custom agents by extending the BaseAgent class:
 
 ```javascript
-import { BaseAgent } from '@agent-graph/core';
+import { BaseAgent } from '@agents-cli/core';
 
 class CustomSecurityAgent extends BaseAgent {
   constructor(config) {
@@ -2416,7 +2416,7 @@ class CustomSecurityAgent extends BaseAgent {
 }
 
 // Register the custom agent
-import { AgentRegistry } from '@agent-graph/core';
+import { AgentRegistry } from '@agents-cli/core';
 AgentRegistry.register('security-agent', CustomSecurityAgent);
 ```
 
@@ -2456,9 +2456,9 @@ Use predefined templates for common agent types:
 
 ```bash
 # Create agent from template
-agent-graph agent create --template security --name my-security-agent
-agent-graph agent create --template performance --name perf-analyzer
-agent-graph agent create --template custom --template-file ./my-template.json
+agents-cli agent create --template security --name my-security-agent
+agents-cli agent create --template performance --name perf-analyzer
+agents-cli agent create --template custom --template-file ./my-template.json
 ```
 
 Available templates:
@@ -2475,7 +2475,7 @@ Available templates:
 Agents communicate through an event-driven system:
 
 ```javascript
-import { EventBus } from '@agent-graph/core';
+import { EventBus } from '@agents-cli/core';
 
 // Agent A publishes an event
 EventBus.emit('analysis:completed', {
@@ -2498,15 +2498,15 @@ Create complex workflows with multiple agents:
 
 ```bash
 # Define a workflow
-agent-graph workflow create --name "code-review" \
+agents-cli workflow create --name "code-review" \
   --agents "code-analyzer,debugger,test-generator" \
   --steps "analyze,debug,test"
 
 # Execute workflow
-agent-graph workflow run --name "code-review" --input "./src/"
+agents-cli workflow run --name "code-review" --input "./src/"
 
 # Workflow with conditional steps
-agent-graph workflow create --name "smart-refactor" \
+agents-cli workflow create --name "smart-refactor" \
   --steps "analyze:code-analyzer,if:complexity>10:refactor:refactor-agent,test:test-generator"
 ```
 
@@ -2546,14 +2546,14 @@ agent-graph workflow create --name "smart-refactor" \
 
 **1. Sequential Pattern**
 ```bash
-agent-graph run --agent code-analyzer --task "analyze code" \
-  && agent-graph run --agent debugger --task "fix issues" \
-  && agent-graph run --agent test-generator --task "create tests"
+agents-cli run --agent code-analyzer --task "analyze code" \
+  && agents-cli run --agent debugger --task "fix issues" \
+  && agents-cli run --agent test-generator --task "create tests"
 ```
 
 **2. Parallel Pattern**
 ```bash
-agent-graph run --parallel \
+agents-cli run --parallel \
   --agent1 code-analyzer --task1 "analyze frontend" \
   --agent2 debugger --task2 "debug backend" \
   --agent3 test-generator --task3 "test API"
@@ -2561,7 +2561,7 @@ agent-graph run --parallel \
 
 **3. Pipeline Pattern**
 ```bash
-agent-graph pipeline create --name "quality-gate" \
+agents-cli pipeline create --name "quality-gate" \
   --steps "analyze:code-analyzer,test:test-generator,deploy:deploy-agent"
 ```
 
@@ -2571,46 +2571,46 @@ agent-graph pipeline create --name "quality-gate" \
 
 ```bash
 # Start agents
-agent-graph agent start code-analyzer
-agent-graph agent start --all
+agents-cli agent start code-analyzer
+agents-cli agent start --all
 
 # Stop agents
-agent-graph agent stop debugger
-agent-graph agent stop --all
+agents-cli agent stop debugger
+agents-cli agent stop --all
 
 # Restart agents
-agent-graph agent restart test-generator
+agents-cli agent restart test-generator
 
 # Agent status
-agent-graph agent status
-agent-graph agent status --detailed
+agents-cli agent status
+agents-cli agent status --detailed
 ```
 
 #### Performance Monitoring
 
 ```bash
 # Monitor agent performance
-agent-graph agent monitor --agent code-analyzer
-agent-graph agent monitor --all
+agents-cli agent monitor --agent code-analyzer
+agents-cli agent monitor --all
 
 # Performance metrics
-agent-graph agent metrics --agent debugger --period 1h
+agents-cli agent metrics --agent debugger --period 1h
 
 # Resource usage
-agent-graph agent resources --agent test-generator
+agents-cli agent resources --agent test-generator
 ```
 
 #### Agent Updates
 
 ```bash
 # Update agent configuration
-agent-graph agent update --name code-analyzer --config ./new-config.json
+agents-cli agent update --name code-analyzer --config ./new-config.json
 
 # Update agent model
-agent-graph agent update --name debugger --model gpt-4-turbo
+agents-cli agent update --name debugger --model gpt-4-turbo
 
 # Reload agent
-agent-graph agent reload --name test-generator
+agents-cli agent reload --name test-generator
 ```
 
 ### Best Practices
@@ -2693,13 +2693,13 @@ agent-graph agent reload --name test-generator
 
 ### Project Configuration
 
-The primary configuration file `agent-graph.config.json` controls all aspects of Agent Graph behavior. Here's a comprehensive reference:
+The primary configuration file `agents-cli.config.json` controls all aspects of Agent Graph behavior. Here's a comprehensive reference:
 
 #### Complete Configuration Schema
 
 ```json
 {
-  "$schema": "https://agent-graph.dev/schema/v1",
+  "$schema": "https://agents-cli.dev/schema/v1",
   "version": "0.1.0",
   "project": {
     "id": "my-project",
@@ -2750,7 +2750,7 @@ The primary configuration file `agent-graph.config.json` controls all aspects of
     },
     "longTerm": {
       "provider": "sqlite",
-      "dbPath": "./agent-graph.db",
+      "dbPath": "./agents-cli.db",
       "searchIndexing": true,
       "compression": true,
       "encryption": {
@@ -2834,7 +2834,7 @@ The primary configuration file `agent-graph.config.json` controls all aspects of
   "logging": {
     "level": "info",
     "format": "json",
-    "file": "./logs/agent-graph.log",
+    "file": "./logs/agents-cli.log",
     "console": true,
     "rotation": {
       "enabled": true,
@@ -2861,27 +2861,27 @@ The primary configuration file `agent-graph.config.json` controls all aspects of
 
 ```bash
 # Show current configuration
-agent-graph config show
-agent-graph config show --section agents
-agent-graph config show --format json
+agents-cli config show
+agents-cli config show --section agents
+agents-cli config show --format json
 
 # Set configuration values
-agent-graph config set agents.codeAnalyzer.temperature 0.2
-agent-graph config set git.autoCommit.enabled true
-agent-graph config set memory.shortTerm.maxSize 2000
+agents-cli config set agents.codeAnalyzer.temperature 0.2
+agents-cli config set git.autoCommit.enabled true
+agents-cli config set memory.shortTerm.maxSize 2000
 
 # Get configuration values
-agent-graph config get agents.codeAnalyzer.model
-agent-graph config get git.smartCommits.enabled
-agent-graph config get memory.longTerm.provider
+agents-cli config get agents.codeAnalyzer.model
+agents-cli config get git.smartCommits.enabled
+agents-cli config get memory.longTerm.provider
 
 # Import/Export configuration
-agent-graph config export --output my-config.json
-agent-graph config import --file my-config.json
+agents-cli config export --output my-config.json
+agents-cli config import --file my-config.json
 
 # Validate configuration
-agent-graph config validate
-agent-graph config validate --section memory
+agents-cli config validate
+agents-cli config validate --section memory
 ```
 
 ---
@@ -2895,7 +2895,7 @@ The Agent Graph core API provides the fundamental building blocks for creating a
 #### Basic Setup
 
 ```javascript
-import { AgentFactory, EventBus, TaskManager, MemoryManager } from '@agent-graph/core';
+import { AgentFactory, EventBus, TaskManager, MemoryManager } from '@agents-cli/core';
 
 // Initialize the core system
 const eventBus = new EventBus();
@@ -2906,7 +2906,7 @@ const memoryManager = new MemoryManager();
 #### Agent Creation and Management
 
 ```javascript
-import { AgentFactory, AgentRegistry } from '@agent-graph/core';
+import { AgentFactory, AgentRegistry } from '@agents-cli/core';
 
 // Create an agent
 const agent = AgentFactory.create({
@@ -2961,7 +2961,7 @@ const results = await agent.executeBatch(tasks);
 #### Event System
 
 ```javascript
-import { EventBus } from '@agent-graph/core';
+import { EventBus } from '@agents-cli/core';
 
 // Listen to events
 eventBus.on('task:completed', (event) => {
@@ -2993,7 +2993,7 @@ eventBus.on('task:*', (event) => {
 #### Basic Memory Operations
 
 ```javascript
-import { MemoryManager } from '@agent-graph/memory';
+import { MemoryManager } from '@agents-cli/memory';
 
 const memory = new MemoryManager({
   shortTerm: { maxSize: 1000, ttl: 3600000 },
@@ -3085,7 +3085,7 @@ await memory.transaction(async (tx) => {
 #### Graph Operations
 
 ```javascript
-import { KnowledgeGraph } from '@agent-graph/knowledge';
+import { KnowledgeGraph } from '@agents-cli/knowledge';
 
 const kg = new KnowledgeGraph({
   provider: 'neo4j',
@@ -3156,7 +3156,7 @@ const metrics = await kg.getMetrics({
 #### Agent Lifecycle
 
 ```javascript
-import { BaseAgent } from '@agent-graph/core';
+import { BaseAgent } from '@agents-cli/core';
 
 class CustomAgent extends BaseAgent {
   constructor(config) {
@@ -3282,7 +3282,7 @@ agent.addPlugin(plugin);
 #### Advanced Event Handling
 
 ```javascript
-import { EventBus } from '@agent-graph/core';
+import { EventBus } from '@agents-cli/core';
 
 const eventBus = new EventBus({
   maxListeners: 100,
@@ -3363,7 +3363,7 @@ class RobustAgent extends BaseAgent {
 #### Monitoring and Metrics
 
 ```javascript
-import { MetricsCollector } from '@agent-graph/core';
+import { MetricsCollector } from '@agents-cli/core';
 
 const metrics = new MetricsCollector();
 
@@ -3399,7 +3399,7 @@ const profile = await agent.getProfile({
 
 ```javascript
 import express from 'express';
-import { AgentFactory } from '@agent-graph/core';
+import { AgentFactory } from '@agents-cli/core';
 
 const app = express();
 const agent = AgentFactory.create({ type: 'code-analyzer' });
@@ -3433,7 +3433,7 @@ wss.on('connection', (ws) => {
 ```javascript
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { AgentFactory } from '@agent-graph/core';
+import { AgentFactory } from '@agents-cli/core';
 
 const program = new Command();
 
@@ -3472,11 +3472,11 @@ program.parse();
 # Error
 npm ERR! code EACCES
 npm ERR! syscall access
-npm ERR! path /usr/local/lib/node_modules/agent-graph
+npm ERR! path /usr/local/lib/node_modules/agents-cli
 
 # Solutions
 # Option 1: Use npx (recommended)
-npx agent-graph
+npx agents-cli
 
 # Option 2: Fix npm permissions
 sudo chown -R $(whoami) ~/.npm
@@ -3485,7 +3485,7 @@ sudo chown -R $(whoami) /usr/local/lib/node_modules
 # Option 3: Use Node Version Manager (nvm)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install 18
-npm install -g agent-graph
+npm install -g agents-cli
 ```
 
 **Issue: Node.js version incompatibility**
@@ -3513,7 +3513,7 @@ npm ERR! network timeout
 npm config set timeout 60000
 
 # Option 2: Use different registry
-npm install -g agent-graph --registry https://registry.npmjs.org/
+npm install -g agents-cli --registry https://registry.npmjs.org/
 
 # Option 3: Use VPN or check network settings
 ```
@@ -3527,14 +3527,14 @@ Configuration validation failed: Invalid agent configuration
 
 # Debug steps
 # Validate configuration
-agent-graph config validate
+agents-cli config validate
 
 # Show detailed errors
-agent-graph config check --verbose
+agents-cli config check --verbose
 
 # Reset to defaults
-agent-graph config reset --all
-agent-graph config init --template typescript
+agents-cli config reset --all
+agents-cli config init --template typescript
 ```
 
 **Issue: Missing environment variables**
@@ -3563,16 +3563,16 @@ Failed to initialize agent: Connection timeout
 
 # Troubleshooting steps
 # Check agent status
-agent-graph agent status
+agents-cli agent status
 
 # Check system status
-agent-graph doctor
+agents-cli doctor
 
 # Restart agents
-agent-graph agent restart --all
+agents-cli agent restart --all
 
 # Check logs
-agent-graph logs --agent code-analyzer --follow
+agents-cli logs --agent code-analyzer --follow
 ```
 
 **Issue: AI model connection problems**
@@ -3582,14 +3582,14 @@ Failed to connect to AI model provider
 
 # Solutions
 # Check API key
-agent-graph config get agents.codeAnalyzer.model.apiKey
+agents-cli config get agents.codeAnalyzer.model.apiKey
 
 # Test connection
-agent-graph test --connection
+agents-cli test --connection
 
 # Try different model
-agent-graph config set agents.codeAnalyzer.model.provider openai
-agent-graph config set agents.codeAnalyzer.model.model gpt-3.5-turbo
+agents-cli config set agents.codeAnalyzer.model.provider openai
+agents-cli config set agents.codeAnalyzer.model.model gpt-3.5-turbo
 ```
 
 #### Memory System Issues
@@ -3601,13 +3601,13 @@ SQLite database is corrupted
 
 # Solutions
 # Check memory health
-agent-graph memory health
+agents-cli memory health
 
 # Rebuild memory database
-agent-graph memory rebuild --force
+agents-cli memory rebuild --force
 
 # Clear corrupted data
-agent-graph memory clear --type long-term
+agents-cli memory clear --type long-term
 ```
 
 **Issue: Out of memory errors**
@@ -3620,11 +3620,11 @@ JavaScript heap out of memory
 export NODE_OPTIONS="--max-old-space-size=4096"
 
 # Reduce memory usage
-agent-graph config set memory.shortTerm.maxSize 500
-agent-graph config set memory.longTerm.compression true
+agents-cli config set memory.shortTerm.maxSize 500
+agents-cli config set memory.longTerm.compression true
 
 # Monitor memory usage
-agent-graph memory monitor --real-time
+agents-cli memory monitor --real-time
 ```
 
 #### Knowledge Graph Issues
@@ -3636,14 +3636,14 @@ Failed to connect to Neo4j database
 
 # Troubleshooting
 # Check Neo4j status
-agent-graph graph health
+agents-cli graph health
 
 # Test connection
-agent-graph graph test-connection
+agents-cli graph test-connection
 
 # Fallback to SQLite
-agent-graph config set knowledge.provider sqlite
-agent-graph config set knowledge.sqlite.path ./agent-graph.db
+agents-cli config set knowledge.provider sqlite
+agents-cli config set knowledge.sqlite.path ./agents-cli.db
 ```
 
 **Issue: Graph query timeouts**
@@ -3653,13 +3653,13 @@ Graph query timeout exceeded
 
 # Solutions
 # Increase timeout
-agent-graph config set knowledge.performance.queryTimeout 60000
+agents-cli config set knowledge.performance.queryTimeout 60000
 
 # Optimize queries
-agent-graph graph profile "MATCH (n) RETURN n LIMIT 100"
+agents-cli graph profile "MATCH (n) RETURN n LIMIT 100"
 
 # Rebuild indexes
-agent-graph graph optimize --indexes
+agents-cli graph optimize --indexes
 ```
 
 #### Git Integration Issues
@@ -3672,10 +3672,10 @@ Not a git repository
 # Solutions
 # Initialize git repository
 git init
-agent-graph git init
+agents-cli git init
 
 # Or disable git integration
-agent-graph config set git.enabled false
+agents-cli config set git.enabled false
 ```
 
 **Issue: Pre-commit hooks failing**
@@ -3685,13 +3685,13 @@ Pre-commit hook failed
 
 # Debugging
 # Run pre-commit manually
-agent-graph git pre-commit
+agents-cli git pre-commit
 
 # Check hook logs
-agent-graph logs --section git --follow
+agents-cli logs --section git --follow
 
 # Temporarily disable hooks
-agent-graph git hooks disable pre-commit
+agents-cli git hooks disable pre-commit
 ```
 
 ### Error Messages
@@ -3702,19 +3702,19 @@ agent-graph git hooks disable pre-commit
 ```bash
 # Cause: Agent failed to initialize
 # Solutions:
-1. Check agent configuration: agent-graph config show --section agents
-2. Verify model credentials: agent-graph config get agents.*.model
-3. Check system resources: agent-graph doctor
-4. Restart agent: agent-graph agent restart <agent-name>
+1. Check agent configuration: agents-cli config show --section agents
+2. Verify model credentials: agents-cli config get agents.*.model
+3. Check system resources: agents-cli doctor
+4. Restart agent: agents-cli agent restart <agent-name>
 ```
 
 **`TASK_EXECUTION_TIMEOUT`**
 ```bash
 # Cause: Task took too long to complete
 # Solutions:
-1. Increase timeout: agent-graph config set agents.*.timeout 60000
-2. Check task complexity: agent-graph task list --status timeout
-3. Monitor system resources: agent-graph monitor
+1. Increase timeout: agents-cli config set agents.*.timeout 60000
+2. Check task complexity: agents-cli task list --status timeout
+3. Monitor system resources: agents-cli monitor
 4. Break large tasks into smaller ones
 ```
 
@@ -3722,10 +3722,10 @@ agent-graph git hooks disable pre-commit
 ```bash
 # Cause: API quota exceeded
 # Solutions:
-1. Check usage: agent-graph usage --period 24h
+1. Check usage: agents-cli usage --period 24h
 2. Upgrade API plan
-3. Use different model: agent-graph config set agents.*.model.model gpt-3.5-turbo
-4. Implement rate limiting: agent-graph config set agents.*.rateLimit 5
+3. Use different model: agents-cli config set agents.*.model.model gpt-3.5-turbo
+4. Implement rate limiting: agents-cli config set agents.*.rateLimit 5
 ```
 
 #### Memory Errors
@@ -3734,19 +3734,19 @@ agent-graph git hooks disable pre-commit
 ```bash
 # Cause: Memory database corruption
 # Solutions:
-1. Backup current data: agent-graph memory backup
-2. Rebuild memory: agent-graph memory rebuild --force
-3. Restore from backup if needed: agent-graph memory restore <backup>
+1. Backup current data: agents-cli memory backup
+2. Rebuild memory: agents-cli memory rebuild --force
+3. Restore from backup if needed: agents-cli memory restore <backup>
 ```
 
 **`SHORT_TERM_MEMORY_FULL`**
 ```bash
 # Cause: Short-term memory capacity exceeded
 # Solutions:
-1. Increase size: agent-graph config set memory.shortTerm.maxSize 2000
-2. Reduce TTL: agent-graph config set memory.shortTerm.ttl 1800000
-3. Enable compression: agent-graph config set memory.shortTerm.compression true
-4. Clear old data: agent-graph memory cleanup --type short-term
+1. Increase size: agents-cli config set memory.shortTerm.maxSize 2000
+2. Reduce TTL: agents-cli config set memory.shortTerm.ttl 1800000
+3. Enable compression: agents-cli config set memory.shortTerm.compression true
+4. Clear old data: agents-cli memory cleanup --type short-term
 ```
 
 #### Graph Errors
@@ -3755,20 +3755,20 @@ agent-graph git hooks disable pre-commit
 ```bash
 # Cause: Cannot connect to graph database
 # Solutions:
-1. Check database status: agent-graph graph health
-2. Verify connection settings: agent-graph config get knowledge.neo4j
+1. Check database status: agents-cli graph health
+2. Verify connection settings: agents-cli config get knowledge.neo4j
 3. Test network connectivity: telnet localhost 7687
-4. Fallback to SQLite: agent-graph config set knowledge.provider sqlite
+4. Fallback to SQLite: agents-cli config set knowledge.provider sqlite
 ```
 
 **`GRAPH_QUERY_SYNTAX_ERROR`**
 ```bash
 # Cause: Invalid Cypher query syntax
 # Solutions:
-1. Validate query: agent-graph graph validate "MATCH (n) RETURN n"
-2. Use query builder: agent-graph graph build-query
-3. Check graph schema: agent-graph graph schema
-4. Use natural language: agent-graph graph search "find all functions"
+1. Validate query: agents-cli graph validate "MATCH (n) RETURN n"
+2. Use query builder: agents-cli graph build-query
+3. Check graph schema: agents-cli graph schema
+4. Use natural language: agents-cli graph search "find all functions"
 ```
 
 ### Debug Mode
@@ -3777,51 +3777,51 @@ agent-graph git hooks disable pre-commit
 
 ```bash
 # Global debug mode
-export DEBUG=agent-graph:*
-agent-graph --verbose analyze ./src
+export DEBUG=agents-cli:*
+agents-cli --verbose analyze ./src
 
 # Specific component debugging
-export DEBUG=agent-graph:agent,agent-graph:memory
-agent-graph run --agent code-analyzer --task "analyze code"
+export DEBUG=agents-cli:agent,agents-cli:memory
+agents-cli run --agent code-analyzer --task "analyze code"
 
 # Debug configuration file
-agent-graph --debug config show
+agents-cli --debug config show
 ```
 
 #### Debug Individual Components
 
 ```bash
 # Debug agents
-agent-graph agent debug code-analyzer
-agent-graph agent logs --follow --level debug
+agents-cli agent debug code-analyzer
+agents-cli agent logs --follow --level debug
 
 # Debug memory system
-agent-graph memory debug --show-operations
-agent-graph memory trace --key "user:*"
+agents-cli memory debug --show-operations
+agents-cli memory trace --key "user:*"
 
 # Debug knowledge graph
-agent-graph graph debug --show-queries
-agent-graph graph profile "MATCH (n) RETURN n LIMIT 10"
+agents-cli graph debug --show-queries
+agents-cli graph profile "MATCH (n) RETURN n LIMIT 10"
 
 # Debug git integration
-agent-graph git debug --show-operations
-agent-graph git logs --follow
+agents-cli git debug --show-operations
+agents-cli git logs --follow
 ```
 
 #### Performance Debugging
 
 ```bash
 # Profile agent performance
-agent-graph profile --agent code-analyzer --duration 60
+agents-cli profile --agent code-analyzer --duration 60
 
 # Memory usage analysis
-agent-graph memory profile --detailed
+agents-cli memory profile --detailed
 
 # Query performance
-agent-graph graph profile-query "MATCH (f:Function) RETURN f.name"
+agents-cli graph profile-query "MATCH (f:Function) RETURN f.name"
 
 # System resources
-agent-graph monitor --resources --interval 5
+agents-cli monitor --resources --interval 5
 ```
 
 ### Recovery Procedures
@@ -3830,42 +3830,42 @@ agent-graph monitor --resources --interval 5
 
 ```bash
 # Memory database recovery
-agent-graph memory backup --name "emergency-backup"
-agent-graph memory rebuild --force
-agent-graph memory restore "emergency-backup"
+agents-cli memory backup --name "emergency-backup"
+agents-cli memory rebuild --force
+agents-cli memory restore "emergency-backup"
 
 # Graph database recovery
-agent-graph graph backup --name "graph-backup"
-agent-graph graph rebuild --force
-agent-graph graph restore "graph-backup"
+agents-cli graph backup --name "graph-backup"
+agents-cli graph rebuild --force
+agents-cli graph restore "graph-backup"
 ```
 
 #### Configuration Recovery
 
 ```bash
 # Reset to working configuration
-agent-graph config reset --all
-agent-graph config init --template typescript
+agents-cli config reset --all
+agents-cli config init --template typescript
 
 # Import known good configuration
-agent-graph config import --file backup-config.json
+agents-cli config import --file backup-config.json
 
 # Validate and fix configuration
-agent-graph config validate --fix
+agents-cli config validate --fix
 ```
 
 #### Agent Recovery
 
 ```bash
 # Restart all agents
-agent-graph agent stop --all
-agent-graph agent start --all
+agents-cli agent stop --all
+agents-cli agent start --all
 
 # Reinitialize problematic agent
-agent-graph agent reinitialize code-analyzer
+agents-cli agent reinitialize code-analyzer
 
 # Reset agent state
-agent-graph agent reset --state code-analyzer
+agents-cli agent reset --state code-analyzer
 ```
 
 ### Getting Help
@@ -3874,45 +3874,45 @@ agent-graph agent reset --state code-analyzer
 
 ```bash
 # General help
-agent-graph --help
-agent-graph help
+agents-cli --help
+agents-cli help
 
 # Command-specific help
-agent-graph analyze --help
-agent-graph agent --help
+agents-cli analyze --help
+agents-cli agent --help
 
 # Troubleshooting help
-agent-graph help troubleshoot
-agent-graph doctor
+agents-cli help troubleshoot
+agents-cli doctor
 ```
 
 #### Community Support
 
 ```bash
 # Generate support bundle
-agent-graph support-bundle --output support-info.zip
+agents-cli support-bundle --output support-info.zip
 
 # Report issue with context
-agent-graph report-issue --title "Agent startup failure" --include-logs
+agents-cli report-issue --title "Agent startup failure" --include-logs
 
 # Check system compatibility
-agent-graph check-compatibility
+agents-cli check-compatibility
 ```
 
 #### Diagnostic Commands
 
 ```bash
 # Full system diagnostic
-agent-graph diagnostic --full
+agents-cli diagnostic --full
 
 # Component-specific diagnostics
-agent-graph diagnostic --agents
-agent-graph diagnostic --memory
-agent-graph diagnostic --graph
-agent-graph diagnostic --git
+agents-cli diagnostic --agents
+agents-cli diagnostic --memory
+agents-cli diagnostic --graph
+agents-cli diagnostic --git
 
 # Export diagnostic report
-agent-graph diagnostic --export --format json --output diagnostic.json
+agents-cli diagnostic --export --format json --output diagnostic.json
 ```
 
 ---

@@ -1,4 +1,4 @@
-# Agent Graph
+# Agents CLI
 
 An AI programming agent platform with knowledge graphs, memory management, and multi-agent collaboration.
 
@@ -14,14 +14,33 @@ An AI programming agent platform with knowledge graphs, memory management, and m
 
 ## 📦 Installation
 
+### From GitHub Repository
+
 ```bash
-npm install -g agent-graph
+# Clone the repository
+git clone https://github.com/LeoCeasar/agents_cli.git
+cd agents_cli
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Install globally (optional)
+npm install -g .
+```
+
+### From npm (when published)
+
+```bash
+npm install -g agents-cli
 ```
 
 ## 🛠️ Project Structure
 
 ```
-agent-graph/
+agents_cli/
 ├── packages/
 │   ├── core/           # Core agent system and types
 │   ├── memory/         # Memory management
@@ -48,26 +67,26 @@ agent-graph/
 
 ```bash
 # Initialize a new project
-agent-graph init my-project
+agents-cli init my-project
 
 # Start interactive chat
-agent-graph chat --agent code-analyzer
+agents-cli chat --agent code-analyzer
 
 # Execute a task
-agent-graph run --task "refactor this code"
+agents-cli run --task "refactor this code"
 
 # Show project status
-agent-graph status
+agents-cli status
 
 # List available agents
-agent-graph agent list
+agents-cli agent list
 ```
 
 ### TUI Usage
 
 ```bash
 # Launch terminal interface
-agent-graph-tui
+agents-cli-tui
 ```
 
 ## 🏗️ Architecture
@@ -117,7 +136,7 @@ Create an `agent-graph.config.json` in your project root:
       "ttl": 3600000
     },
     "longTerm": {
-      "dbPath": "./agent-graph.db"
+      "dbPath": "./agents-cli.db"
     }
   },
   "knowledge": {
@@ -140,8 +159,8 @@ Create an `agent-graph.config.json` in your project root:
 
 ```bash
 # Clone repository
-git clone https://github.com/agent-graph/agent-graph.git
-cd agent-graph
+git clone https://github.com/LeoCeasar/agents_cli.git
+cd agents_cli
 
 # Install dependencies
 npm install
@@ -176,7 +195,7 @@ npm run build:tui    # Build TUI package
 ### Core API
 
 ```typescript
-import { AgentFactory, EventBus, TaskManager } from '@agent-graph/core';
+import { AgentFactory, EventBus, TaskManager } from '@agents-cli/core';
 
 // Create an agent
 const agent = AgentFactory.create({
@@ -200,7 +219,7 @@ eventBus.on('task:completed', (result) => {
 ### Memory API
 
 ```typescript
-import { MemoryManager } from '@agent-graph/memory';
+import { MemoryManager } from '@agents-cli/memory';
 
 const memory = new MemoryManager({
   shortTerm: { maxSize: 1000 },
@@ -220,7 +239,7 @@ const results = await memory.search('alice');
 ### Knowledge Graph API
 
 ```typescript
-import { KnowledgeGraph } from '@agent-graph/knowledge';
+import { KnowledgeGraph } from '@agents-cli/knowledge';
 
 const kg = new KnowledgeGraph({
   neo4j: { uri: 'bolt://localhost:7687' }
@@ -294,11 +313,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 Email: support@agent-graph.dev
-- 💬 Discord: [Agent Graph Discord](https://discord.gg/agent-graph)
-- 📖 Documentation: [docs.agent-graph.dev](https://docs.agent-graph.dev)
-- 🐛 Issues: [GitHub Issues](https://github.com/agent-graph/agent-graph/issues)
+- 📧 Email: support@agents-cli.dev
+- 💬 Discord: [Agents CLI Discord](https://discord.gg/agents-cli)
+- 📖 Documentation: [docs.agents-cli.dev](https://docs.agents-cli.dev)
+- 🐛 Issues: [GitHub Issues](https://github.com/LeoCeasar/agents_cli/issues)
 
 ---
 
-**Agent Graph** - Empowering developers with AI-powered programming assistants. 🚀
+**Agents CLI** - Empowering developers with AI-powered programming assistants. 🚀

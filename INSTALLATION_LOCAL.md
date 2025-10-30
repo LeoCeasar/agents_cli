@@ -1,12 +1,12 @@
-# Agent Graph 本地安装完成指南
+# Agents CLI 本地安装完成指南
 
 ## 🎉 安装状态：完成
 
-Agent Graph 项目已成功安装并配置在您的本地机器上！
+Agents CLI 项目已成功安装并配置在您的本地机器上！
 
 ## 📍 项目位置
 
-- **项目目录**: `/Users/rrong/Documents/perf/projects/web_agents/agent-graph`
+- **项目目录**: `/Users/rrong/Documents/perf/projects/web_agents/agents_cli_repo`
 - **启动脚本**: `./start.sh` (在项目根目录)
 - **CLI 可执行文件**: `packages/cli/dist/cli-simple.js`
 - **TUI 可执行文件**: `packages/tui/dist/tui.js`
@@ -15,7 +15,7 @@ Agent Graph 项目已成功安装并配置在您的本地机器上！
 
 ### 方法 1: 使用启动脚本 (推荐)
 ```bash
-cd /Users/rrong/Documents/perf/projects/web_agents/agent-graph
+cd /Users/rrong/Documents/perf/projects/web_agents/agents_cli_repo
 ./start.sh
 ```
 
@@ -52,7 +52,7 @@ node packages/tui/dist/tui.js
 
 ### 项目结构
 ```
-agent-graph/
+agents_cli_repo/
 ├── packages/
 │   ├── core/           # 核心代理系统
 │   ├── memory/         # 内存管理
@@ -111,4 +111,4 @@ agent-graph/
 
 ---
 
-**🎉 恭喜！Agent Graph 已成功安装并可在您的本地机器上运行！**
+**🎉 恭喜！Agents CLI 已成功安装并可在您的本地机器上运行！**

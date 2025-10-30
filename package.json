@@ -1,0 +1,35 @@
+{
+  "name": "agent-graph",
+  "version": "0.1.0",
+  "description": "AI agent platform with knowledge graphs, memory management, and git integration",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "platforms/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter cli-app dev",
+    "build": "bun run --filter=\"*\" build",
+    "test": "bun run --filter=\"*\" test",
+    "typecheck": "bun run --filter=\"*\" typecheck",
+    "lint": "bun run --filter=\"*\" lint",
+    "format": "biome format --write .",
+    "clean": "bun run --filter=\"*\" clean"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/babel__traverse": "^7.28.0",
+    "@types/bun": "^1.1.6",
+    "@types/node": "^22.18.13",
+    "@types/uuid": "^11.0.0",
+    "turbo": "^2.0.14",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "bun@1.1.20",
+  "engines": {
+    "bun": ">=1.1.0",
+    "node": ">=20.0.0"
+  }
+}

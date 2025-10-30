@@ -1,0 +1,32 @@
+{
+  "name": "@agent-graph/knowledge",
+  "version": "0.1.0",
+  "description": "Knowledge graph management system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@agent-graph/core": "file:../core",
+    "neo4j-driver": "^5.22.0",
+    "ast-traverse": "^0.1.1",
+    "@babel/parser": "^7.25.6",
+    "@babel/traverse": "^7.25.6",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4"
+  }
+}

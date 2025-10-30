@@ -1,0 +1,33 @@
+{
+  "name": "@agent-graph/agents",
+  "version": "0.1.0",
+  "description": "Sub agents system for agent platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@agent-graph/core": "file:../core",
+    "@agent-graph/knowledge": "file:../knowledge",
+    "@agent-graph/memory": "file:../memory",
+    "@agent-graph/git": "file:../git",
+    "zod": "^3.23.8",
+    "eventemitter3": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "typescript": "^5.5.4"
+  }
+}

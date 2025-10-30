@@ -1,0 +1,47 @@
+{
+  "name": "@agent-graph/cli",
+  "version": "0.1.0",
+  "description": "Command line interface for agent platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+    "agent-graph": "./dist/cli-simple.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@agent-graph/core": "file:../core",
+    "@agent-graph/agents": "file:../agents",
+    "@agent-graph/knowledge": "file:../knowledge",
+    "@agent-graph/memory": "file:../memory",
+    "@agent-graph/git": "file:../git",
+    "yargs": "^17.7.2",
+    "@clack/prompts": "^0.7.0",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "inquirer": "^9.2.12",
+    "figlet": "^1.7.0",
+    "boxen": "^7.1.1",
+    "update-notifier": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/yargs": "^17.0.32",
+    "@types/inquirer": "^9.0.7",
+    "@types/figlet": "^1.5.8",
+    "@types/update-notifier": "^6.0.8",
+    "typescript": "^5.5.4"
+  }
+}

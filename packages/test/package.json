@@ -1,0 +1,32 @@
+{
+  "name": "@agent-graph/test",
+  "version": "0.1.0",
+  "description": "Testing framework for agent platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@agent-graph/core": "file:../core",
+    "@agent-graph/knowledge": "file:../knowledge",
+    "@agent-graph/memory": "file:../memory",
+    "@agent-graph/git": "file:../git",
+    "bun-types": "^1.1.6",
+    "expect": "^29.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4"
+  }
+}

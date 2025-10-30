@@ -1,0 +1,30 @@
+{
+  "name": "@agent-graph/git",
+  "version": "0.1.0",
+  "description": "Git integration module for agent platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@agent-graph/core": "file:../core",
+    "simple-git": "^3.21.0",
+    "diff": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/diff": "^5.0.8"
+  }
+}
